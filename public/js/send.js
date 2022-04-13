@@ -3,7 +3,7 @@ require("dotenv").config();
 // 解錠のPOST
 document.getElementById("open").onclick = () => {
   const json = { rotate: "1" };
-  fetch(process.env.SITE_URL, {
+  fetch(process.env.SERVER_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ document.getElementById("open").onclick = () => {
 // 施錠のPOST
 document.getElementById("close").onclick = () => {
   const json = { rotate: "0" };
-  fetch(process.env.SITE_URL, {
+  fetch(process.env.SERVER_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
