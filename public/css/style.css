@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 20px 30px;
+  margin: 50px;
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button-under-text {
+  text-align: center;
+  padding-top: 0;
+  margin-top: -40px;
+}
