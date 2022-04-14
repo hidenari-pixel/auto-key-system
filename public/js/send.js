@@ -1,7 +1,10 @@
 require("dotenv").config();
 
+const openBtn = document.getElementById("open");
+const closeBtn = document.getElementById("close");
+
 // 解錠のPOST
-document.getElementById("open").onclick = () => {
+openBtn.onclick = () => {
   const json = { rotate: "1" };
   fetch(process.env.SERVER_URL, {
     method: "POST",
@@ -10,9 +13,16 @@ document.getElementById("open").onclick = () => {
     },
     body: JSON.stringify(json),
   });
+  btnDisabled(openBtn);
+  btnDisabled(closeBtn);
+  setTimeout(() => {
+    btnEnabled(openBtn);
+    btnEnabled(closeBtn);
+    console.log("finish");
+  }, 3000);
 };
 // 施錠のPOST
-document.getElementById("close").onclick = () => {
+closeBtn.onclick = () => {
   const json = { rotate: "0" };
   fetch(process.env.SERVER_URL, {
     method: "POST",
@@ -21,4 +31,21 @@ document.getElementById("close").onclick = () => {
     },
     body: JSON.stringify(json),
   });
+  btnDisabled(openBtn);
+  btnDisabled(closeBtn);
+  setTimeout(() => {
+    btnEnabled(openBtn);
+    btnEnabled(closeBtn);
+    console.log("finish");
+  }, 2000);
+};
+
+const btnDisabled = (btn) => {
+  btn.disabled = true;
+  btn.style.backgroundColor = "#ccc";
+};
+
+const btnEnabled = (btn) => {
+  btn.disabled = false;
+  btn.style.backgroundColor = "#333";
 };
